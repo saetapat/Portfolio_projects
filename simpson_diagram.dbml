@@ -1,0 +1,67 @@
+Table person {
+  person varchar(60)
+  birthdate date
+  birth_name varchar(60)
+  birth_place varchar(10)
+  birth_region varchar(20)
+  birth_country varchar(10)
+  height_meters int
+  nickname varchar(30)
+  }
+
+Table vote {
+  episode_id int 
+  stars int
+  votes int
+}
+
+Table keyword {
+episode_id int 
+keyword text 
+}
+
+Table episode {
+  episode_id int
+  season int
+  episode int 
+  number_in_series int 
+  title text 
+  summary text 
+  air_date date 
+  episode_image text 
+  rating float 
+  votes int 
+}
+ 
+Table credit {
+  episode_id int 
+  category  text 
+  person varchar(50)
+  role varchar(20)
+  credited boolean
+}
+
+Table character_award {
+  award_id int 
+  character varchar(50)
+}
+
+Table award {
+  award_id int 
+  organisation varchar(60)
+  year int 
+  award_category varchar(80)
+  award text
+  person varchar(50)
+  role varchar (50)
+  episode_id int 
+  result text
+}
+
+Ref: award.award_id > character_award.award_id
+Ref: episode.episode_id > credit.episode_id
+Ref: episode.episode_id > vote.episode_id
+Ref: episode.episode_id > keyword.episode_id
+Ref: episode.episode_id > award.episode_id
+Ref: person.person > credit.person
+Ref: person.person > award.person
