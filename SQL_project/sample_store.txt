@@ -1,1 +1,0 @@
-This is a prject for SQL skill with dataset from online database 
